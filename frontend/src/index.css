@@ -1,0 +1,181 @@
+:root {
+  /* Premium Dark Palette */
+  --bg-primary: 222 47% 11%;
+  --bg-secondary: 217 33% 17%;
+  --bg-surface: 217 33% 17%;
+
+  --text-primary: 210 40% 98%;
+  --text-secondary: 215 20% 65%;
+  --text-accent: 217 91% 60%;
+
+  --primary: 217 91% 60%;
+  --primary-hover: 217 91% 70%;
+
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --bg-primary: #0f172a;
+  --bg-secondary: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --primary: 250, 84%, 60%; /* Softer Violet */
+  --accent: 326, 100%, 74%; /* Pink */
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(30, 41, 59, 0.65); /* More transparent/lighter */
+
+  /* Status Colors (keeping original for now as no explicit change was provided for these) */
+  --status-applied: 210 100% 50%;
+  --status-interview: 35 100% 50%;
+  --status-offer: 142 71% 45%;
+  --status-rejected: 0 84% 60%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', 'Inter', system-ui, sans-serif; /* Friendly round font if avail */
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  /* Smoother, friendlier gradient */
+  background: radial-gradient(circle at 10% 20%, #1e1b4b 0%, #0f172a 90%);
+  background-attachment: fixed;
+  line-height: 1.6;
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  padding: 2rem; /* Increased padding from 1.5rem to 2rem */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Inputs & Forms */
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--glass-border);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+}
+
+/* Buttons */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, #8b5cf6 100%);
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+  box-shadow: 0 10px 15px -3px rgba(124, 58, 237, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Dashboard Grid Layout adjustments */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Navigation Link Styles */
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.nav-link:hover, .nav-link.active {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+.nav-link.active {
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.1) 0%, transparent 100%);
+  border-left: 3px solid hsl(var(--primary));
+  font-weight: 500;
+}
+
+/* Layout */
+.app-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: hsl(var(--bg-secondary));
+  border-right: 1px solid var(--glass-border);
+  padding: 2rem 1rem;
+}
+
+.main-content {
+  padding: 2rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade {
+  animation: fadeIn 0.4s ease-out forwards;
+}
